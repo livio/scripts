@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 # This script is used to dynamically update a docker-compose file when a docker is updated
 
 VERSION_TAG=$1 
@@ -18,4 +18,6 @@ perl -pi -e "s/(?<=$DOCKER_IMAGE_NAME:)(\d.\d.\d)/$VERSION_TAG/g" $COMPOSE_FILE_
 
 git add $COMPOSE_FILE_LOCATION &&
 git commit -m "$COMMIT_MESSAGE" &&
-git push 
+git push
+
+
