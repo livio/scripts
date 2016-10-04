@@ -15,6 +15,7 @@ git checkout $BRANCH &&
 
 # Replace the pylon version with the new tag
 perl -pi -e "s/(?<=$DOCKER_IMAGE_NAME:)(\d.\d.\d)/$VERSION_TAG/g" $COMPOSE_FILE_LOCATION &&
+perl -pi -e "s/(?<=$DOCKER_IMAGE_NAME:)(\d.\d.\d)/$VERSION_TAG/g" ./scripts/deploy-to-ecs.staging.sh &&
 
 git add $COMPOSE_FILE_LOCATION &&
 git commit -m "$COMMIT_MESSAGE" &&
