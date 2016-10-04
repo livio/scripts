@@ -18,6 +18,7 @@ perl -pi -e "s/(?<=$DOCKER_IMAGE_NAME:)(\d.\d.\d)/$VERSION_TAG/g" $COMPOSE_FILE_
 perl -pi -e "s/(?<=$DOCKER_IMAGE_NAME:)(\d.\d.\d)/$VERSION_TAG/g" ./scripts/deploy-to-ecs.staging.sh &&
 
 git add $COMPOSE_FILE_LOCATION &&
+git add ./scripts/deploy-to-ecs.staging.sh
 git commit -m "$COMMIT_MESSAGE" &&
 git push
 
